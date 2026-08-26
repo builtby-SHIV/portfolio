@@ -51,7 +51,7 @@ export default function Home() {
             className="text-2xl mb-8"
             style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
           >
-            Tools for Tinkering
+            Tools I Tinker with
           </h2>
           <div className="space-y-6 text-sm sm:text-base">
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
