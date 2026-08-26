@@ -1,69 +1,389 @@
+import ThemeToggle from "./components/ThemeToggle";
+import ScrollReveal from "./components/ScrollReveal";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <ThemeToggle />
+
+      <main className="mx-auto max-w-180 px-5 py-16 md:py-28">
+
+        {/* ── Hero ── */}
+        <ScrollReveal className="mb-24">
+          <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-8 overflow-hidden rounded-lg">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/hero_banner6.png"
+              alt="Hero"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 720px) 100vw, 720px"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          <h1
+            className="text-4xl md:text-5xl tracking-tight mb-3"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif", fontWeight: 400 }}
           >
-            Documentation
-          </a>
-        </div>
+            Shiv
+          </h1>
+          <p className="text-base md:text-lg" style={{ color: "var(--fg-muted)" }}>
+            CS Student · Building what I like · Open to SWE internships
+          </p>
+        </ScrollReveal>
+        
+        {/* ── About ── */}
+        <ScrollReveal className="mb-20 max-w-[65ch]">
+          <p className="text-base leading-[1.8]" style={{ color: "var(--fg)" }}>
+            I&apos;m a CS undergrad who likes to write clear and efficient code following
+            industry standard practices. I&apos;m drawing the &quot;WHY&quot; behind
+            engineering decisions. I’m progressively building projects that push me 
+            deeper into backend engineering, distributed systems, and production-grade software.
+            Currently open to internship opportunities where I can contribute and learn fast.
+          </p>
+        </ScrollReveal>
+
+        <hr className="mb-20" />
+
+        {/* ── Skills ── */}
+        <ScrollReveal className="mb-20">
+          <h2
+            className="text-2xl mb-8"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
+          >
+            Tools for Tinkering
+          </h2>
+          <div className="space-y-6 text-sm sm:text-base">
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                LANGUAGES
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>JavaScript</span>
+                <span>TypeScript</span>
+                <span>Python</span>
+                <span>Go</span>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                FRONTEND
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>React</span>
+                <span>Next.js</span>
+                <span>TanStack Query</span>
+                <span>Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                BACKEND
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>Node JS</span>
+                <span>Express</span>
+                <span>tRPC</span>
+                <span>Go</span>
+              </div>
+            </div>
+
+
+
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                Databases
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>PostgreSQL</span>
+                <span>MongoDB</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                Extra
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>Drizzle</span>
+                <span>Git</span>
+                <span>bun</span>
+              </div>
+            </div>
+
+            {/* <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+              <span
+                className="w-28 shrink-0 text-xs tracking-wider uppercase"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                }}
+              >
+                ML / DATA
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
+                <span>PyTorch</span>
+                <span>ONNX</span>
+                <span>NumPy</span>
+                <span>Pandas</span>
+              </div>
+            </div> */}
+          </div>
+        </ScrollReveal>
+
+        <hr className="mb-20" />
+
+        {/* ── Projects ── */}
+        <ScrollReveal className="mb-20">
+          <h2
+            className="text-2xl mb-10"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
+          >
+            Projects
+          </h2>
+
+          <article className="mb-10">
+            <h3
+              className="text-lg mb-1"
+              style={{
+                fontFamily: "var(--font-newsreader), Georgia, serif",
+                fontWeight: 500,
+              }}
+            >
+              Aakaar
+            </h3>
+            <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+              Local podcast recoring platform for creators with an in-browser lightweight
+              video editor. Combined studio to host, record, edit and export without
+              leaving the browser.
+            </p>
+            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              NextJS · TypeScript · TurboRepo · LiveKit
+            </p>
+            <a
+              href="https://github.com/builtby-SHIV/aakaar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm"
+            >
+              GitHub →
+            </a>
+          </article>
+
+          <hr className="mb-10" />
+
+          <article className="mb-10">
+            <h3
+              className="text-lg mb-1"
+              style={{
+                fontFamily: "var(--font-newsreader), Georgia, serif",
+                fontWeight: 500,
+              }}
+            >
+              Scribbl
+            </h3>
+            <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+              A Real-time, server authoritative multiplayer canvas-based draw and guess
+              game with live syncing and late-joiner replay. Features live stroke-syncing
+              with region-locked rooms (no Redis) for low-latency and Web-Worker
+              flood-fill tool.
+            </p>
+            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              NextJS · TypeScript · Zustand · Socket.IO
+            </p>
+            <a
+              href="https://github.com/builtby-SHIV/scribbl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm"
+            >
+              GitHub →
+            </a>
+          </article>
+
+          <hr className="mb-10" />
+
+          <article>
+            <h3
+              className="text-lg mb-1"
+              style={{
+                fontFamily: "var(--font-newsreader), Georgia, serif",
+                fontWeight: 500,
+              }}
+            >
+              Sect
+            </h3>
+            <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+              Real-time messaging application for Instant bidirectional communication 
+              powered by Socket.io for low-latency messaging. Debounced search to 
+              quickly discover registered users and start conversations.
+            </p>
+            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              ReactJS · NodeJS · ExpressJS · MongoDB · Zustand · Socket.IO
+            </p>
+            <a
+              href="https://github.com/builtby-SHIV/sect"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm"
+            >
+              GitHub →
+            </a>
+          </article>
+        </ScrollReveal>
+
+        <hr className="mb-20" />
+
+        {/* ── Open Source ── */}
+        {/* <ScrollReveal className="mb-20">
+          <h2
+            className="text-2xl mb-6"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
+          >
+          </h2>
+
+          <div className="mb-4">
+            <p className="text-sm">
+              <span className="font-medium">next.js</span>
+              <span style={{ color: "var(--fg-faint)" }}> — </span>
+              <span style={{ color: "var(--fg-muted)" }}>
+                Improved TypeScript inference for App Router route params
+              </span>
+            </p>
+            <a
+              href="https://github.com/vercel/next.js/pull/00000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm"
+            >
+              PR #00000
+            </a>
+          </div>
+
+          <div>
+            <p className="text-sm">
+              <span className="font-medium">langchain</span>
+              <span style={{ color: "var(--fg-faint)" }}> — </span>
+              <span style={{ color: "var(--fg-muted)" }}>
+                Added streaming support for custom LLM wrappers
+              </span>
+            </p>
+            <a
+              href="https://github.com/langchain-ai/langchain/pull/00000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm"
+            >
+              PR #00000
+            </a>
+          </div>
+        </ScrollReveal>
+
+        <hr className="mb-20" /> */}
+
+        {/* ── Experience ── */}
+        {/* <ScrollReveal className="mb-20">
+          <h2
+            className="text-2xl mb-6"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
+          >
+            Experience
+          </h2>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <span
+                className="inline-block w-14 mr-3 tabular-nums"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                  fontSize: "0.8em",
+                }}
+              >
+                2025
+              </span>
+              Software Engineering Intern, TechCorp
+            </li>
+            <li>
+              <span
+                className="inline-block w-14 mr-3 tabular-nums"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                  fontSize: "0.8em",
+                }}
+              >
+                2024
+              </span>
+              ML Research Assistant, University AI Lab
+            </li>
+            <li>
+              <span
+                className="inline-block w-14 mr-3 tabular-nums"
+                style={{
+                  fontFamily: "var(--font-jetbrains), monospace",
+                  color: "var(--fg-faint)",
+                  fontSize: "0.8em",
+                }}
+              >
+                2023
+              </span>
+              Teaching Assistant, Data Structures &amp; Algorithms
+            </li>
+          </ul>
+        </ScrollReveal>
+
+        <hr className="mb-20" /> */}
+
+        {/* ── Contact ── */}
+        <ScrollReveal className="pb-16">
+          <p className="text-sm mb-5" style={{ color: "var(--fg-muted)" }}>
+            Feel free to reach out — always happy to chat.
+          </p>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <a href="mailto:shivshukla00514@gmail.com">Email</a>
+            <a href="https://github.com/builtby-SHIV" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/shiv-shukla-97874427b/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href="https://x.com/builtbyshiv" target="_blank" rel="noopener noreferrer">
+              X
+            </a>
+          </nav>
+        </ScrollReveal>
       </main>
-    </div>
+    </>
   );
 }
