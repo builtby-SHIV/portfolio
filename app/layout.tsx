@@ -26,7 +26,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shiv — Developer Portfolio",
+  title: "Shiv — To Infinity And Beyond",
   description:
     "CS student building software. Open to SWE and AI/ML internships.",
 };

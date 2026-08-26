@@ -10,8 +10,8 @@ export default function Home() {
       <main className="mx-auto max-w-180 px-5 pt-6 md:pt-10 pb-16 md:pb-24">
 
         {/* ── Hero ── */}
-        <ScrollReveal className="mb-16 md:mb-20">
-          <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg">
+        <ScrollReveal className="mb-16 md:mb-20 text-center">
+          <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto">
             <Image
               src="/hero_banner6.png"
               alt="Hero"
@@ -28,7 +28,7 @@ export default function Home() {
             Shiv
           </h1>
           <p className="text-base md:text-lg" style={{ color: "var(--fg-muted)" }}>
-            CS Student · Building what I like · Open to SWE internships
+            Building what I like · Open to SWE internships · Ready to Freelance
           </p>
         </ScrollReveal>
         
@@ -36,16 +36,15 @@ export default function Home() {
         <ScrollReveal className="mb-14 md:mb-16 max-w-[65ch]">
           <p className="text-base leading-[1.8]" style={{ color: "var(--fg)" }}>
             I’m a CS undergraduate who enjoys writing clear, efficient, and maintainable code while understanding the engineering decisions behind it. I’m particularly interested in the “why” behind systems—how they are designed, scaled, and made reliable in production.
-
-I’m progressively building projects that take me deeper into backend engineering, distributed systems, and production-grade software. Currently, I’m open to internship opportunities where I can contribute to real-world systems, learn from experienced engineers, and grow.
-
+            <br /><br />
+            I’m progressively building projects that take me deeper into backend engineering, distributed systems, and production-grade software. Currently, I’m open to internship opportunities where I can contribute to real-world systems, learn from experienced engineers, and grow.
           </p>
         </ScrollReveal>
 
         <hr className="mb-14 md:mb-16" />
 
         {/* ── Skills ── */}
-        <ScrollReveal className="mb-14 md:mb-16">
+        <ScrollReveal className="mb-14 md:mb-16 text-left">
           <h2
             className="text-2xl mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
@@ -106,8 +105,6 @@ I’m progressively building projects that take me deeper into backend engineeri
               </div>
             </div>
 
-
-
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
               <span
                 className="w-28 shrink-0 text-xs tracking-wider uppercase"
@@ -116,7 +113,7 @@ I’m progressively building projects that take me deeper into backend engineeri
                   color: "var(--fg-faint)",
                 }}
               >
-                Databases
+                DATABASES
               </span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
                 <span>PostgreSQL</span>
@@ -132,7 +129,7 @@ I’m progressively building projects that take me deeper into backend engineeri
                   color: "var(--fg-faint)",
                 }}
               >
-                Extra
+                EXTRA
               </span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
                 <span>Drizzle</span>
@@ -140,24 +137,6 @@ I’m progressively building projects that take me deeper into backend engineeri
                 <span>bun</span>
               </div>
             </div>
-
-            {/* <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
-              <span
-                className="w-28 shrink-0 text-xs tracking-wider uppercase"
-                style={{
-                  fontFamily: "var(--font-jetbrains), monospace",
-                  color: "var(--fg-faint)",
-                }}
-              >
-                ML / DATA
-              </span>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
-                <span>PyTorch</span>
-                <span>ONNX</span>
-                <span>NumPy</span>
-                <span>Pandas</span>
-              </div>
-            </div> */}
           </div>
         </ScrollReveal>
 
@@ -187,16 +166,23 @@ I’m progressively building projects that take me deeper into backend engineeri
               video editor. Combined studio to host, record, edit and export without
               leaving the browser.
             </p>
-            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
-              NextJS · TypeScript · TurboRepo · LiveKit
-            </p>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              {["NextJS", "TypeScript", "TurboRepo", "LiveKit"].map((tech, i, arr) => (
+                <span key={tech} className="inline-flex items-center gap-x-2">
+                  <span className="transition-colors duration-200 hover:text-[var(--fg)] cursor-default">
+                    {tech}
+                  </span>
+                  {i < arr.length - 1 && <span className="select-none opacity-50">·</span>}
+                </span>
+              ))}
+            </div>
             <a
               href="https://github.com/builtby-SHIV/aakaar"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm"
             >
-              GitHub →
+              GitHub 
             </a>
           </article>
 
@@ -218,16 +204,23 @@ I’m progressively building projects that take me deeper into backend engineeri
               with region-locked rooms (no Redis) for low-latency and Web-Worker
               flood-fill tool.
             </p>
-            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
-              NextJS · TypeScript · Zustand · Socket.IO
-            </p>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              {["NextJS", "TypeScript", "Zustand", "Socket.IO"].map((tech, i, arr) => (
+                <span key={tech} className="inline-flex items-center gap-x-2">
+                  <span className="transition-colors duration-200 hover:text-[var(--fg)] cursor-default">
+                    {tech}
+                  </span>
+                  {i < arr.length - 1 && <span className="select-none opacity-50">·</span>}
+                </span>
+              ))}
+            </div>
             <a
               href="https://github.com/builtby-SHIV/scribbl"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm"
             >
-              GitHub →
+              GitHub 
             </a>
           </article>
 
@@ -248,16 +241,23 @@ I’m progressively building projects that take me deeper into backend engineeri
               powered by Socket.io for low-latency messaging. Debounced search to 
               quickly discover registered users and start conversations.
             </p>
-            <p className="text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
-              ReactJS · NodeJS · ExpressJS · MongoDB · Zustand · Socket.IO
-            </p>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+              {["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Zustand", "Socket.IO"].map((tech, i, arr) => (
+                <span key={tech} className="inline-flex items-center gap-x-2">
+                  <span className="transition-colors duration-200 hover:text-[var(--fg)] cursor-default">
+                    {tech}
+                  </span>
+                  {i < arr.length - 1 && <span className="select-none opacity-50">·</span>}
+                </span>
+              ))}
+            </div>
             <a
               href="https://github.com/builtby-SHIV/sect"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm"
             >
-              GitHub →
+              GitHub 
             </a>
           </article>
         </ScrollReveal>
@@ -365,11 +365,11 @@ I’m progressively building projects that take me deeper into backend engineeri
         <hr className="mb-20" /> */}
 
         {/* ── Contact ── */}
-        <ScrollReveal className="pb-16">
+        <ScrollReveal className="pb-16 text-center">
           <p className="text-sm mb-5" style={{ color: "var(--fg-muted)" }}>
             Feel free to reach out — always happy to chat.
           </p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <a href="mailto:shivshukla00514@gmail.com">Email</a>
             <a href="https://github.com/builtby-SHIV" target="_blank" rel="noopener noreferrer">
               GitHub
