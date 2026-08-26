@@ -7,11 +7,11 @@ export default function Home() {
     <>
       <ThemeToggle />
 
-      <main className="mx-auto max-w-180 px-5 py-16 md:py-28">
+      <main className="mx-auto max-w-180 px-5 pt-6 md:pt-10 pb-16 md:pb-24">
 
         {/* ── Hero ── */}
-        <ScrollReveal className="mb-24">
-          <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-8 overflow-hidden rounded-lg">
+        <ScrollReveal className="mb-16 md:mb-20">
+          <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg">
             <Image
               src="/hero_banner6.png"
               alt="Hero"
@@ -33,22 +33,21 @@ export default function Home() {
         </ScrollReveal>
         
         {/* ── About ── */}
-        <ScrollReveal className="mb-20 max-w-[65ch]">
+        <ScrollReveal className="mb-14 md:mb-16 max-w-[65ch]">
           <p className="text-base leading-[1.8]" style={{ color: "var(--fg)" }}>
-            I&apos;m a CS undergrad who likes to write clear and efficient code following
-            industry standard practices. I&apos;m drawing the &quot;WHY&quot; behind
-            engineering decisions. I’m progressively building projects that push me 
-            deeper into backend engineering, distributed systems, and production-grade software.
-            Currently open to internship opportunities where I can contribute and learn fast.
+            I’m a CS undergraduate who enjoys writing clear, efficient, and maintainable code while understanding the engineering decisions behind it. I’m particularly interested in the “why” behind systems—how they are designed, scaled, and made reliable in production.
+
+I’m progressively building projects that take me deeper into backend engineering, distributed systems, and production-grade software. Currently, I’m open to internship opportunities where I can contribute to real-world systems, learn from experienced engineers, and grow.
+
           </p>
         </ScrollReveal>
 
-        <hr className="mb-20" />
+        <hr className="mb-14 md:mb-16" />
 
         {/* ── Skills ── */}
-        <ScrollReveal className="mb-20">
+        <ScrollReveal className="mb-14 md:mb-16">
           <h2
-            className="text-2xl mb-8"
+            className="text-2xl mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
           >
             Tools I Tinker with
@@ -162,12 +161,12 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <hr className="mb-20" />
+        <hr className="mb-14 md:mb-16" />
 
         {/* ── Projects ── */}
-        <ScrollReveal className="mb-20">
+        <ScrollReveal className="mb-14 md:mb-16">
           <h2
-            className="text-2xl mb-10"
+            className="text-2xl mb-8 md:mb-10"
             style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
           >
             Projects
@@ -263,7 +262,7 @@ export default function Home() {
           </article>
         </ScrollReveal>
 
-        <hr className="mb-20" />
+        <hr className="mb-14 md:mb-16" />
 
         {/* ── Open Source ── */}
         {/* <ScrollReveal className="mb-20">
