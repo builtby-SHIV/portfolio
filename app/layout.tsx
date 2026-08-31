@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsreader, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+import ThemeToggle from "./components/ThemeToggle";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -59,6 +60,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <ThemeToggle />
         {children}
       </body>
     </html>
