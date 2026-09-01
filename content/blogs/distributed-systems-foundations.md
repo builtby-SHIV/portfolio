@@ -1,5 +1,5 @@
 ---
-title: "Distributed Systems — Day 1"
+title: "Distributed Systems — Foundations"
 date: "2026-08-31"
 summary: "Why distributed systems exist, false assumptions about networks, the CAP theorem, and a comprehensive breakdown of consistency models."
 tags: ["Distributed Systems", "Consistency Model", "CAP Theorem"]

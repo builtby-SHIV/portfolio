@@ -283,7 +283,7 @@ export default function Home() {
                   color: "var(--fg-faint)",
                 }}
               >
-                View all &rarr;
+                View all
               </Link>
             </div>
 
@@ -347,7 +347,7 @@ export default function Home() {
                       href={`/blogs/${blog.slug}`}
                       className="text-sm"
                     >
-                      Read article &rarr;
+                      Read article
                     </Link>
                   </article>
                 </div>
