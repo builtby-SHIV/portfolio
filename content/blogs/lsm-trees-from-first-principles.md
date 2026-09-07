@@ -13,7 +13,6 @@ Back then, I did not have the answer for it. Now I do.
 
 Because we want our applications or projects to work beautifully and serve their needs using the tools we currently possess. Now, no tool is wrong to use, but each has its use case and to understand which tool works where **IS** what we need so we don't end up like *Patrick* did:
 
-![Patrick with hammer](https://miro.medium.com/v2/resize:fit:1200/format:webp/1*dfj4AXvB-_nI8hOnBeKkGg.jpeg)
 
 Here we’ll be looking at a *log-structured* storage engine called **LSM** (Log-Structured Merge Trees) which uses an immutable file-storage system.
 
