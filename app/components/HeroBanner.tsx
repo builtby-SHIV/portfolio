@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 const BANNER_IMAGES = [
-    "/hero_banner4.png",
-    "/hero_banner6.png",
-    "/hero_banner8.png",
-    "/hero_banner9.jpg",
-    "/hero_banner10.jpg",
-    "/hero_banner11.png",
-    "/hero_banner13.png",
+  "/hero_banner4.png",
+  "/hero_banner6.png",
+  "/hero_banner8.png",
+  "/hero_banner9.jpg",
+  "/hero_banner10.jpg",
+  "/hero_banner11.png",
+  "/hero_banner13.png",
 ];
 
 const STORAGE_KEY_QUEUE = "banner_fair_queue";
@@ -78,17 +78,21 @@ function getNextFairIndex(): number {
 
 export default function HeroBanner() {
   const [index, setIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
   const isFirstThemeCheck = useRef(true);
 
-  // Pick next fair image from the deck on visit/mount
+  // 1. Pick fair image on load & preload all banner images in background
   useEffect(() => {
+    // Preload all banner images immediately into browser cache
+    BANNER_IMAGES.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+
     const nextIdx = getNextFairIndex();
     setIndex(nextIdx);
-    setIsLoaded(true);
   }, []);
 
-  // Listen to theme toggle events to draw the next fair image from the deck
+  // 2. Listen to theme toggle events to draw the next fair image with zero delay
   useEffect(() => {
     const root = document.documentElement;
     let lastIsDark = root.classList.contains("dark");
@@ -123,21 +127,21 @@ export default function HeroBanner() {
     };
   }, []);
 
-  const currentImage = BANNER_IMAGES[index];
-
   return (
     <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
-      <Image
-        key={currentImage}
-        src={currentImage}
-        alt="Hero Banner"
-        fill
-        priority
-        className={`object-cover transition-opacity duration-500 ease-in-out ${
-          isLoaded ? "opacity-100" : "opacity-90"
-        }`}
-        sizes="(max-width: 720px) 100vw, 720px"
-      />
+      {BANNER_IMAGES.map((src, i) => (
+        <Image
+          key={src}
+          src={src}
+          alt="Hero Banner"
+          fill
+          priority={i === 0 || i === index}
+          className={`object-cover transition-opacity duration-300 ease-in-out ${
+            i === index ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+          }`}
+          sizes="(max-width: 720px) 100vw, 720px"
+        />
+      ))}
     </div>
   );
 }
