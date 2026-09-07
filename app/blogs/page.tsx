@@ -76,7 +76,7 @@ export default function BlogsPage() {
 
             <p
               className="text-sm mb-3 max-w-[65ch] leading-relaxed"
-              style={{ color: "var(--fg-muted)" }}
+              style={{ color: "var(--fg)" }}
             >
               {blog.summary}
             </p>

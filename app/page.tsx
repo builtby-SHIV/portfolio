@@ -1,5 +1,5 @@
 import ScrollReveal from "./components/ScrollReveal";
-import Image from "next/image";
+import HeroBanner from "./components/HeroBanner";
 import Link from "next/link";
 import { getAllBlogs } from "@/lib/blogs";
 
@@ -11,16 +11,7 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <ScrollReveal className="mb-16 md:mb-20 text-center">
-        <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto">
-          <Image
-            src="/hero_banner6.png"
-            alt="Hero"
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 720px) 100vw, 720px"
-          />
-        </div>
+        <HeroBanner />
         <h1
           className="text-4xl md:text-5xl tracking-tight mb-3"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif", fontWeight: 400 }}
@@ -49,7 +40,7 @@ export default function Home() {
           className="text-2xl mb-6 md:mb-8"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
         >
-          Tools I Tinker with
+          ToolKit
         </h2>
         <div className="space-y-6 text-sm sm:text-base">
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
@@ -57,7 +48,7 @@ export default function Home() {
               className="w-28 shrink-0 text-xs tracking-wider uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains), monospace",
-                color: "var(--fg-faint)",
+                color: "var(--accent)",
               }}
             >
               LANGUAGES
@@ -74,7 +65,7 @@ export default function Home() {
               className="w-28 shrink-0 text-xs tracking-wider uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains), monospace",
-                color: "var(--fg-faint)",
+                color: "var(--accent)",
               }}
             >
               FRONTEND
@@ -92,7 +83,7 @@ export default function Home() {
               className="w-28 shrink-0 text-xs tracking-wider uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains), monospace",
-                color: "var(--fg-faint)",
+                color: "var(--accent)",
               }}
             >
               BACKEND
@@ -110,7 +101,7 @@ export default function Home() {
               className="w-28 shrink-0 text-xs tracking-wider uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains), monospace",
-                color: "var(--fg-faint)",
+                color: "var(--accent)",
               }}
             >
               DATABASES
@@ -126,7 +117,7 @@ export default function Home() {
               className="w-28 shrink-0 text-xs tracking-wider uppercase"
               style={{
                 fontFamily: "var(--font-jetbrains), monospace",
-                color: "var(--fg-faint)",
+                color: "var(--accent)",
               }}
             >
               EXTRA
@@ -159,9 +150,16 @@ export default function Home() {
               fontWeight: 500,
             }}
           >
-            Aakaar
+            <a
+              href="https://github.com/builtby-SHIV/aakaar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Aakaar
+            </a>
           </h3>
-          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
             Local podcast recoring platform for creators with an in-browser lightweight
             video editor. Combined studio to host, record, edit and export without
             leaving the browser.
@@ -196,9 +194,16 @@ export default function Home() {
               fontWeight: 500,
             }}
           >
-            Scribbl
+            <a
+              href="https://github.com/builtby-SHIV/scribbl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Scribbl
+            </a>
           </h3>
-          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
             A Real-time, server authoritative multiplayer canvas-based draw and guess
             game with live syncing and late-joiner replay. Features live stroke-syncing
             with region-locked rooms (no Redis) for low-latency and Web-Worker
@@ -234,9 +239,16 @@ export default function Home() {
               fontWeight: 500,
             }}
           >
-            Sect
+            <a
+              href="https://github.com/builtby-SHIV/sect"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Sect
+            </a>
           </h3>
-          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
             Real-time messaging application for Instant bidirectional communication 
             powered by Socket.io for low-latency messaging. Debounced search to 
             quickly discover registered users and start conversations.
@@ -326,7 +338,7 @@ export default function Home() {
                       </Link>
                     </h3>
 
-                    <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg-muted)" }}>
+                    <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
                       {blog.summary}
                     </p>
 

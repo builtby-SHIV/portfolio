@@ -1,0 +1,143 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
+
+const BANNER_IMAGES = [
+    "/hero_banner4.png",
+    "/hero_banner6.png",
+    "/hero_banner8.png",
+    "/hero_banner9.jpg",
+    "/hero_banner10.jpg",
+    "/hero_banner11.png",
+    "/hero_banner13.png",
+];
+
+const STORAGE_KEY_QUEUE = "banner_fair_queue";
+const STORAGE_KEY_LAST = "banner_last_shown";
+
+/**
+ * Generates a freshly shuffled deck of all image indices using Fisher-Yates shuffle.
+ * Ensures the first card in the new deck does not repeat the last shown image.
+ */
+function createFairDeck(total: number, lastIndex: number | null): number[] {
+  const deck = Array.from({ length: total }, (_, i) => i);
+
+  // Fisher-Yates shuffle
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+
+  // Ensure no immediate repetition across deck refills
+  if (lastIndex !== null && deck[0] === lastIndex && deck.length > 1) {
+    const swapTarget = 1 + Math.floor(Math.random() * (deck.length - 1));
+    [deck[0], deck[swapTarget]] = [deck[swapTarget], deck[0]];
+  }
+
+  return deck;
+}
+
+/**
+ * Shuffle-Bag (Permutation Queue) Algorithm:
+ * Guarantees every image gets exactly one turn before any image repeats (100% fair distribution, 0% starvation).
+ */
+function getNextFairIndex(): number {
+  try {
+    let queue: number[] = [];
+    const storedQueue = localStorage.getItem(STORAGE_KEY_QUEUE);
+    const storedLast = localStorage.getItem(STORAGE_KEY_LAST);
+    const lastIndex = storedLast !== null ? parseInt(storedLast, 10) : null;
+
+    if (storedQueue) {
+      try {
+        const parsed = JSON.parse(storedQueue);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          queue = parsed.filter((idx) => typeof idx === "number" && idx >= 0 && idx < BANNER_IMAGES.length);
+        }
+      } catch {
+        queue = [];
+      }
+    }
+
+    // If the fair bag is exhausted or empty, refill with a fresh shuffled deck
+    if (queue.length === 0) {
+      queue = createFairDeck(BANNER_IMAGES.length, lastIndex);
+    }
+
+    const nextIndex = queue.shift()!;
+    localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queue));
+    localStorage.setItem(STORAGE_KEY_LAST, nextIndex.toString());
+
+    return nextIndex;
+  } catch {
+    // Fallback if localStorage is disabled/restricted
+    return Math.floor(Math.random() * BANNER_IMAGES.length);
+  }
+}
+
+export default function HeroBanner() {
+  const [index, setIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const isFirstThemeCheck = useRef(true);
+
+  // Pick next fair image from the deck on visit/mount
+  useEffect(() => {
+    const nextIdx = getNextFairIndex();
+    setIndex(nextIdx);
+    setIsLoaded(true);
+  }, []);
+
+  // Listen to theme toggle events to draw the next fair image from the deck
+  useEffect(() => {
+    const root = document.documentElement;
+    let lastIsDark = root.classList.contains("dark");
+
+    const observer = new MutationObserver(() => {
+      const currentIsDark = root.classList.contains("dark");
+      if (currentIsDark !== lastIsDark) {
+        lastIsDark = currentIsDark;
+        if (isFirstThemeCheck.current) {
+          isFirstThemeCheck.current = false;
+          return;
+        }
+
+        // Advance to next fair image in the permutation queue
+        const nextIdx = getNextFairIndex();
+        setIndex(nextIdx);
+      }
+    });
+
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    const timer = setTimeout(() => {
+      isFirstThemeCheck.current = false;
+    }, 100);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const currentImage = BANNER_IMAGES[index];
+
+  return (
+    <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
+      <Image
+        key={currentImage}
+        src={currentImage}
+        alt="Hero Banner"
+        fill
+        priority
+        className={`object-cover transition-opacity duration-500 ease-in-out ${
+          isLoaded ? "opacity-100" : "opacity-90"
+        }`}
+        sizes="(max-width: 720px) 100vw, 720px"
+      />
+    </div>
+  );
+}

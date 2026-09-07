@@ -11,24 +11,24 @@
 
 :root {
   --bg: #faf9f6;
-  --fg: #2e2e2e;
-  --fg-muted: #6b6b6b;
-  --fg-faint: #a3a3a3;
-  --accent: oklch(0.45 0.085 268);
-  --accent-hover: oklch(0.38 0.095 268);
+  --fg: #1f1f1f;
+  --fg-muted: #4b4b4b;
+  --fg-faint: #4e4e4e;
+  --accent: oklch(0.50 0.115 268);
+  --accent-hover: oklch(0.42 0.125 268);
   --hairline: rgba(0, 0, 0, 0.08);
-  --selection-bg: oklch(0.45 0.085 268 / 0.12);
+  --selection-bg: oklch(0.50 0.115 268 / 0.12);
 }
 
 .dark {
   --bg: #131313;
-  --fg: #d4d4d4;
-  --fg-muted: #8a8a8a;
-  --fg-faint: #555555;
-  --accent: oklch(0.62 0.085 268);
-  --accent-hover: oklch(0.68 0.095 268);
+  --fg: #e2e2e2;
+  --fg-muted: #a8a8a8;
+  --fg-faint: #a0a0a0;
+  --accent: oklch(0.72 0.11 268);
+  --accent-hover: oklch(0.78 0.12 268);
   --hairline: rgba(255, 255, 255, 0.08);
-  --selection-bg: oklch(0.62 0.085 268 / 0.15);
+  --selection-bg: oklch(0.72 0.11 268 / 0.15);
 }
 
 /* ── Base ── */
