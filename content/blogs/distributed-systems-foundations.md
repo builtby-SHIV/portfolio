@@ -65,8 +65,6 @@ Both A and B have replicas of the same data. A request comes in on A’s side. W
 
 You cannot do both at the same time. That’s it. That’s the whole theorem.
 
-![CAP Theorem](https://cdn-images-1.medium.com/max/568/0*7KImPAga_7R7tzPV.png)
-
 **C**onsistency, **A**vailability and **P**artition.
 
 A misconception about the theorem is the assumption to *choose one of the three CAP attributes permanently as an architecture-wide decision.* It’s worth being precise about this and why because **P**artitions aren’t something that we’re choosing. In distributed systems network partitions always happen whether we like it or not. What we can choose to do is how to handle the data during a partition. We can either choose to accept writes, even if it means having possible disagreements or do they refuse to answer until consistency can be guaranteed. That’s why real systems are describes as CP, AP not CA. We’ve make different choices for different kinds of data — consistency for bank accounts and availability for “likes” count on a social media post.
@@ -351,8 +349,6 @@ Different systems and distributed-systems literature use different consistency g
 ## Conclusion
 
 If you have come this far, congratulations!!! You have conquered a tough topic in distributed systems. Always remember distributed systems is all about making the right trade-offs as per the use case while being aware of all the options currently present.
-
-![Conclusion](https://cdn-images-1.medium.com/proxy/0*1K504TMgGRb_3ckN.jpeg)
 
 That’s it for this blog now. More on the way.
 
