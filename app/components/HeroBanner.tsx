@@ -4,10 +4,9 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 const BANNER_IMAGES = [
-  "/hero_banner8.png",
-  "/hero_banner10.jpg",
-  "/hero_banner11.png",
-  "/hero_banner13.png",
+//   "/hero_banner15.png",
+  "/hero_banner17.png",
+//   "/hero_banner16.png"
 ];
 
 const STORAGE_KEY_QUEUE = "banner_fair_queue";
@@ -86,6 +85,7 @@ export default function HeroBanner() {
     });
 
     const nextIdx = getNextFairIndex();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIndex(nextIdx);
   }, []);
 
@@ -125,7 +125,8 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <div className="relative w-full aspect-2/1 sm:aspect-[2.4/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
+    <div className="flex flex-col justify-end">
+    <div className="relative w-full aspect-2/1 sm:aspect-[1.5/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
       {BANNER_IMAGES.map((src, i) => (
         <Image
           key={src}
@@ -138,7 +139,12 @@ export default function HeroBanner() {
           }`}
           sizes="(max-width: 720px) 100vw, 720px"
         />
+        
       ))}
+    </div>
+    {/* <p className="text-sm mb-5" style={{ color: "var(--fg-muted)" }}>
+            To Infinity And Beyond
+        </p> */}
     </div>
   );
 }

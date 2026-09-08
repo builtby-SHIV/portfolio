@@ -10,13 +10,13 @@ export default function Home() {
     <main className="mx-auto max-w-180 px-5 pt-6 md:pt-10 pb-16 md:pb-24">
 
       {/* ── Hero ── */}
-      <ScrollReveal className="mb-16 md:mb-20 text-center">
+      <ScrollReveal className="mb-16 md:mb-20">
         <HeroBanner />
         <h1
           className="text-4xl md:text-5xl tracking-tight mb-3"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif", fontWeight: 400 }}
         >
-          Shiv
+          Shiv Shukla
         </h1>
         <p className="text-base md:text-lg" style={{ color: "var(--fg-muted)" }}>
           Building what I like · Open to internships · Ready to Freelance
@@ -26,7 +26,7 @@ export default function Home() {
       {/* ── About ── */}
       <ScrollReveal className="mb-14 md:mb-16 max-w-[65ch]">
         <p className="text-base leading-[1.8]" style={{ color: "var(--fg)" }}>
-          I’m a CS undergraduate who enjoys backend and distributed systems. I’m particularly interested in the “why” behind systems—how they are designed, scaled, and made reliable in production. Also I like to follow industry standard best practices when I code, while also understanding the engineering decisions behind it. 
+          I’m a CS undergraduate who enjoys backend and distributed systems. <br/>I’m particularly interested in the “why” behind systems—how they are designed, scaled, and made reliable in production. Also I like to follow industry standard best practices when I code, while also understanding the engineering decisions behind it. 
           <br /><br />
           I’m progressively building projects that take me deeper into backend engineering, distributed systems, and production-grade software. Currently, I’m open to internship opportunities where I can contribute to real-world systems, learn from experienced engineers, and grow.
         </p>
@@ -35,7 +35,7 @@ export default function Home() {
       <hr className="mb-14 md:mb-16" />
 
       {/* ── Skills ── */}
-      <ScrollReveal className="mb-14 md:mb-16 text-left">
+      {/* <ScrollReveal className="mb-14 md:mb-16 text-left">
         <h2
           className="text-2xl mb-6 md:mb-8"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
@@ -131,16 +131,28 @@ export default function Home() {
         </div>
       </ScrollReveal>
 
-      <hr className="mb-14 md:mb-16" />
+      <hr className="mb-14 md:mb-16" /> */}
 
       {/* ── Projects ── */}
       <ScrollReveal className="mb-14 md:mb-16">
-        <h2
-          className="text-2xl mb-8 md:mb-10"
-          style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
-        >
-          Projects
-        </h2>
+        <div className="flex items-baseline justify-between mb-8 md:mb-10">
+          <h2
+            className="text-2xl"
+            style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
+          >
+            Projects
+          </h2>
+          <Link
+            href="/projects"
+            className="text-xs uppercase tracking-wider transition-colors hover:underline"
+            style={{
+              fontFamily: "var(--font-jetbrains), monospace",
+              color: "var(--fg-faint)",
+            }}
+          >
+            View all
+          </Link>
+        </div>
 
         <article className="mb-10">
           <h3
