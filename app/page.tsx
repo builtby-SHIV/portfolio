@@ -16,7 +16,7 @@ export default function Home() {
           className="text-4xl md:text-5xl tracking-tight mb-3"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif", fontWeight: 400 }}
         >
-          Shiv Shukla
+          Shiv
         </h1>
         <p className="text-base md:text-lg" style={{ color: "var(--fg-muted)" }}>
           Building what I like · Open to internships · Ready to Freelance
@@ -35,7 +35,7 @@ export default function Home() {
       <hr className="mb-14 md:mb-16" />
 
       {/* ── Skills ── */}
-      {/* <ScrollReveal className="mb-14 md:mb-16 text-left">
+      <ScrollReveal className="mb-14 md:mb-16 text-left">
         <h2
           className="text-2xl mb-6 md:mb-8"
           style={{ fontFamily: "var(--font-newsreader), Georgia, serif" }}
@@ -92,7 +92,6 @@ export default function Home() {
               <span>Node JS</span>
               <span>Express</span>
               <span>tRPC</span>
-              <span>Go</span>
             </div>
           </div>
 
@@ -125,13 +124,12 @@ export default function Home() {
             <div className="flex flex-wrap gap-x-6 gap-y-2 font-medium" style={{ color: "var(--fg)" }}>
               <span>Drizzle</span>
               <span>Git</span>
-              <span>bun</span>
             </div>
           </div>
         </div>
       </ScrollReveal>
 
-      <hr className="mb-14 md:mb-16" /> */}
+      <hr className="mb-14 md:mb-16" />
 
       {/* ── Projects ── */}
       <ScrollReveal className="mb-14 md:mb-16">
@@ -172,7 +170,7 @@ export default function Home() {
             </a>
           </h3>
           <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
-            Local podcast recoring platform for creators with an in-browser lightweight
+            Podcast recording platform for creators with an in-browser lightweight
             video editor. Combined studio to host, record, edit and export without
             leaving the browser.
           </p>
