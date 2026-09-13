@@ -26,9 +26,17 @@ export default function Home() {
       {/* ── About ── */}
       <ScrollReveal className="mb-14 md:mb-16 max-w-[65ch]">
         <p className="text-base leading-[1.8]" style={{ color: "var(--fg)" }}>
-          I’m a CS undergraduate who enjoys backend and distributed systems. <br/>I’m particularly interested in the “why” behind systems—how they are designed, scaled, and made reliable in production. Also I like to follow industry standard best practices when I code, while also understanding the engineering decisions behind it. 
-          <br /><br />
-          I’m progressively building projects that take me deeper into backend engineering, distributed systems, and production-grade software. Currently, I’m open to internship opportunities where I can contribute to real-world systems, learn from experienced engineers, and grow.
+          I’m a CS undergraduate who enjoys backend and distributed systems,{" "}
+          <br />
+          particularly interested in the “why” behind systems—how they are
+          designed, scaled, and made reliable in production. <br />
+          <br />
+          My projects take me deeper into backend
+          engineering, distributed systems, and production-grade software.
+          <br />
+          <br /> Currently, I’m open to internship opportunities where I can
+          contribute to real-world systems, learn from experienced engineers,
+          and grow.
         </p>
       </ScrollReveal>
 
