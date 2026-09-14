@@ -126,7 +126,7 @@ export default function HeroBanner() {
 
   return (
     <div className="flex flex-col justify-end">
-    <div className="relative w-full aspect-2/1 sm:aspect-[1.5/1] mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
+    <div className="relative w-full aspect-2/1 sm:aspect-1.4/1 mb-6 md:mb-8 overflow-hidden rounded-lg mx-auto bg-black/5 dark:bg-white/5">
       {BANNER_IMAGES.map((src, i) => (
         <Image
           key={src}
