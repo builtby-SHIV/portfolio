@@ -1,9 +1,9 @@
 ---
-title: "Distributed Systems — Foundations"
+title: "The Network is LYING to You"
 date: "2026-08-31"
-summary: "Why distributed systems exist, false assumptions about networks, the CAP theorem, and a comprehensive breakdown of consistency models."
-tags: ["Distributed Systems", "Consistency Model", "CAP Theorem"]
-readTime: "10 min read"
+summary: "Why distributed systems exist, false assumptions about networks, the CAP and PACELC theorem, and a comprehensive breakdown of consistency models."
+tags: ["Distributed Systems", "Consistency Model", "CAP Theorem", "PACELC Theorem"]
+readTime: "21 min read"
 mediumUrl: "https://medium.com/@shiivv147/distributed-systems-day-1-3ba3c388363a"
 ---
 
@@ -70,8 +70,35 @@ You cannot do both at the same time. That’s it. That’s the whole theorem.
 A misconception about the theorem is the assumption to *choose one of the three CAP attributes permanently as an architecture-wide decision.* It’s worth being precise about this and why because **P**artitions aren’t something that we’re choosing. In distributed systems network partitions always happen whether we like it or not. What we can choose to do is how to handle the data during a partition. We can either choose to accept writes, even if it means having possible disagreements or do they refuse to answer until consistency can be guaranteed. That’s why real systems are describes as CP, AP not CA. We’ve make different choices for different kinds of data — consistency for bank accounts and availability for “likes” count on a social media post.
 
 ---
+## 1.3 PACELC
 
-## 1.3 Consistency Models
+CAP theorem says we have to choose between Availability and Consistency during a network partition but here's a question CAP fails to answer:
+
+What happens during the other 99% of the time when the network is healthy? Does the system work perfectly without any trade-offs?
+
+Seems too good to be true.
+
+### Why does the "no partition" case still have a problem?
+
+Imagine a distributed system with data replicas spread across the world in Mumbai, Singapore and Frankfurt. Let's say a write operation takes place in Mumbai — when do we notify the client it's done? Three options:
+
+- Mumbai replica waits for Singapore and Frankfurt replicas to acknowledge the write operation, then tells the client that the operation succeeded. This guarantees strong consistency across all replicas. If you try to read the new value from any of the replicas, you get the same fresh value everywhere, but latency spikes here. This is also called **synchronous data replication**, where the leader/primary replica waits for an acknowledgement from all other follower replicas/nodes that the write operation has been completed on their end.
+- Mumbai replica completes the write operation on its end, does not wait for other replicas, and notifies the client about the success of the operation. If the client tries to read from the other replicas/nodes it might receive stale data. It's fast for the client but may return stale data. This is also called **asynchronous data replication**, where the leader/primary replica does not wait for an acknowledgement from all other follower replicas/nodes that the write operation has been completed on their end, and notifies the user of success anyway.
+- Mumbai replica completes the operation and notifies other replicas about the write operation but does not wait for all the replicas. Here we reach a middle ground between consistency and latency. The leader/primary node might wait for acknowledgement from the nearest replica/node but does not wait for all the replicas/nodes. This is a **hybrid form** of synchronous and asynchronous data replication.
+
+Even with no partition, there's still trade-offs to choose from. This is the gap that PACELC fills. If there's any kind of Partition (**P**), then we choose between Availability (**A**) and Consistency (**C**). Else (**E**, meaning the network is fine), we choose between Latency (**L**) and Consistency (**C**).
+
+### Grounding it with real systems
+
+Systems land at different points on this diagram, and knowing where explains a lot about how they feel to use:
+
+- **DynamoDB, Cassandra → PA/EL.** During a partition they favor availability. During normal operation they favor low latency over strict consistency. Makes sense — these were built for "always respond fast," e-commerce-style workloads where a slightly stale product page beats a spinning loader.
+- **MongoDB (default config) → PA/EC.** Available during a partition, but consistent during normal times (waits for enough replica acknowledgment before confirming a write).
+- **Traditional relational databases with synchronous replication → PC/EC.** Consistent no matter what — they'd rather refuse a write than risk returning stale or conflicting data. That's why they can feel "slower" or less forgiving under network stress.
+
+---
+
+## 1.4 Consistency Models
 
 ### Eventual Consistency
 
