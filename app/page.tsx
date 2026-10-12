@@ -169,6 +169,51 @@ export default function Home() {
             }}
           >
             <a
+              href="https://github.com/builtby-SHIV/iron-bank"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Iron Bank
+            </a>
+          </h3>
+          <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
+            A Log-Structured Merge-Tree (LSM) based key-value storage engine built
+            from scratch in Go. Features write-ahead logging with CRC32 checksums,
+            skip list–backed memtable, SSTables with bloom filters, 7-level compaction,
+            and protobuf serialization.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
+            {["Go", "Protocol Buffers", "LSM Tree", "WAL"].map((tech, i, arr) => (
+              <span key={tech} className="inline-flex items-center gap-x-2">
+                <span className="transition-colors duration-200 hover:text-[var(--fg)] cursor-default">
+                  {tech}
+                </span>
+                {i < arr.length - 1 && <span className="select-none opacity-50">·</span>}
+              </span>
+            ))}
+          </div>
+          <a
+            href="https://github.com/builtby-SHIV/iron-bank"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm"
+          >
+            GitHub 
+          </a>
+        </article>
+
+        <hr className="mb-10" />
+
+        <article className="mb-10">
+          <h3
+            className="text-lg mb-1"
+            style={{
+              fontFamily: "var(--font-newsreader), Georgia, serif",
+              fontWeight: 500,
+            }}
+          >
+            <a
               href="https://github.com/builtby-SHIV/aakaar"
               target="_blank"
               rel="noopener noreferrer"
