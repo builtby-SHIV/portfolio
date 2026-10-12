@@ -11,7 +11,7 @@ const PROJECTS = [
   {
     title: "Iron Bank",
     description:
-    "A Log-Structured Merge-Tree (LSM) based key-value storage engine built from scratch in Go. Features write-ahead logging with CRC32 checksums, skip list–backed memtable, SSTables with bloom filters and dense indexes, 7-level compaction, and protobuf serialization — evolved incrementally from a simple in-memory hashmap.",
+    "A Log-Structured Merge-Tree (LSM) based key-value storage engine built from scratch in Go. Features write-ahead logging with CRC32 checksums, skip list–backed memtable, SSTables with bloom filters and dense indexes and protobuf serialization — evolved incrementally from a simple in-memory hashmap.",
     tech: ["Go", "Protocol Buffers", "LSM Tree", "WAL"],
     github: "https://github.com/builtby-SHIV/iron-bank",
   },

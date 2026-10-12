@@ -180,7 +180,7 @@ export default function Home() {
           <p className="text-sm mb-2 max-w-[65ch]" style={{ color: "var(--fg)" }}>
             A Log-Structured Merge-Tree (LSM) based key-value storage engine built
             from scratch in Go. Features write-ahead logging with CRC32 checksums,
-            skip list–backed memtable, SSTables with bloom filters, 7-level compaction,
+            skip list–backed memtable, SSTables with bloom filters,
             and protobuf serialization.
           </p>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2" style={{ color: "var(--fg-faint)" }}>
